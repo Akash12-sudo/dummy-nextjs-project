@@ -1,7 +1,9 @@
 import BlogModel from "@/app/(models)/schema";
 import { NextResponse } from "next/server";
 
-export async function POST(req) {
+export async function POST(req: {
+  json: () => PromiseLike<{ slug: any }> | { slug: any };
+}) {
   try {
     const { slug } = await req.json();
     const deleteBlog = await BlogModel.findByIdAndDelete(slug);

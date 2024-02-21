@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import BlogModel from "@/app/(models)/schema";
 
-export async function POST(req) {
+export async function POST(req: { json: () => any }) {
   try {
     const id = await req.json();
     const blog = await BlogModel.findById(id);

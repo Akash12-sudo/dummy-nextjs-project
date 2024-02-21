@@ -1,7 +1,7 @@
 import BlogModel from "../(models)/schema";
 import { NextResponse } from "next/server";
 
-export async function POST(req) {
+export async function POST(req: { json: () => any }) {
   try {
     const body = await req.json();
     console.log(body);
